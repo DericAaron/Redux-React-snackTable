@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+
 import './App.css';
 import {connect} from 'react-redux';
+import SnackList from '../SnackList/SnackList';
+import Header from '../Header/Header';
 
 //Access redux store
 const mapReduxStateToProps = (reduxState) => ({
@@ -34,17 +36,13 @@ class App extends Component {
         <li key={snack}>{snack}</li>
       );
     });
+    
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
+        <Header />
         <input onChange={this.handleChange} value={this.state.snack}/>
         <button onClick={this.sendSnack}>Submit</button>
-        <ul>
-          {snacks}
-        </ul>
+        <SnackList />
 
       </div>
     );
